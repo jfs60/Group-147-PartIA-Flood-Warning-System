@@ -7,3 +7,17 @@ geographical data.
 """
 
 from .utils import sorted_by_key  # noqa
+
+
+
+from haversine import haversine, Unit
+from floodsystem.stationdata import build_station_list
+from . station import MonitoringStation
+
+
+def station_by_distance (stations, p):
+    station_distance = []
+    temp_distance = haversine(station.coordinate,p)
+    
+    
+

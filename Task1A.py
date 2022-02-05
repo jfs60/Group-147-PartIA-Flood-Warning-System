@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
+from Task1B import station_by_distance
 from floodsystem.stationdata import build_station_list
 
 
@@ -20,6 +21,8 @@ def run():
                 'Bourton Dickler', 'Surfleet Sluice', 'Gaw Bridge'
         ]:
             print(station)
+    
+    return station
 
 
 if __name__ == "__main__":
