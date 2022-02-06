@@ -50,6 +50,22 @@ def stations_within_radius (stations, centre, r):
     return list_of_station_in_radius
 
 
+#Task1D geo
+def rivers_with_stations (stations): 
+    river_set = set()
+    for station in stations:
+        river_temp = station.river 
+        river_set.add(river_temp)
+    
+    return river_set
+
+def station_by_river (stations): 
+    station_by_river = {}
+    for station in stations: 
+        
+            
+
+
 
 
     
