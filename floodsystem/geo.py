@@ -11,10 +11,15 @@ from .utils import sorted_by_key  # noqa
 from floodsystem.stationdata import build_station_list
 
 #create a haversine function that calculate distance between two coordinates
-from math import radians, degrees, sin, cos, asin, acos, sqrt
+from math import radians, degrees, sin, cos, asin, acos, sqrt, pi
 def haversine (coordinate_1, coordinate_2): 
-    distance = 6371 * (acos(sin(coordinate_1[0])) * sin(coordinate_2[0]) 
-        + cos(coordinate_1[0]) * cos(coordinate_2[0]) * cos(coordinate_1[1] - coordinate_2[1]))
+    lat1, lon1 = coordinate_1
+    lat2, lon2 = coordinate_2 
+    lon1 = pi*lon1/180
+    lon2 = pi*lon2/180
+    lat1 = pi*lat1/180
+    lat2 = pi*lat2/180
+    distance = 6371*2*asin(sqrt((sin((lat1-lat2)/2))**2+cos(lat1)*cos(lat2)*(sin((lon1-lon2)/2))**2))
     return distance
 
 
