@@ -6,6 +6,7 @@ geographical data.
 
 """
 
+from this import d
 from .utils import sorted_by_key  # noqa
 from floodsystem.stationdata import build_station_list
 
@@ -60,9 +61,17 @@ def rivers_with_stations (stations):
     return river_set
 
 def station_by_river (stations): 
-    station_by_river = {}
+    station_by_river_dict = {}
     for station in stations: 
-        
+        if station.river in station_by_river_dict : 
+            station_by_river_dict[station.river].append(station.name)
+            station_by_river_dict[station.river].sort()
+        else: 
+            station_by_river_dict[station.river] = station.name
+
+
+    return station_by_river_dict
+
             
 
 
