@@ -18,7 +18,7 @@ def haversine (coordinate_1, coordinate_2):
 
 # p is a tuple 
 
-
+#Task1B geocode
 def station_by_distance (stations, p):
     station_distance = []
     assert len(p)== 2 
@@ -30,6 +30,24 @@ def station_by_distance (stations, p):
     station_distance = sorted_by_key(station_distance, 1)
     return station_distance
 
+#Task1C geocode
+def stations_within_radius (stations, centre, r): 
+    list_of_station_in_radius = []
+    assert len(centre) == 2
+    string_temp = ""
+    for station in stations:
+        temp_distance = haversine(station.coord, centre)
+        if temp_distance <= r : 
+            string_temp = (station.name)
+            list_of_station_in_radius.append(string_temp)
+        
+        
+        
+        list_of_station_in_radius =  sorted(list_of_station_in_radius)
+
+        
+    
+    return list_of_station_in_radius
 
 
 
