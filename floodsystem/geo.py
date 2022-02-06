@@ -78,7 +78,7 @@ def station_by_river (stations):
             station_by_river_dict[station.river].append(station.name)
             station_by_river_dict[station.river].sort()
         else: 
-            station_by_river_dict[station.river] = station.name
+            station_by_river_dict[station.river] = [station.name,]
 
 
     return station_by_river_dict

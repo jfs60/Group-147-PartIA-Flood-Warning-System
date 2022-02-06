@@ -16,24 +16,24 @@ myList = sorted(list(list_1D))
 print (myList[:10])
 
 def run(): 
-    stations = build_station_list
+    stations = build_station_list()
 
     station_river_dict = station_by_river(stations)
 
-    return station_by_river
+    return station_river_dict
 
 dict_river_station = run()
-print (dict_river_station)
+#print (dict_river_station)
 
 def dictionary_search (dict_river_station, river): 
     list_for_dict = []
-    for dict in dict_river_station:
-        if (dict[0] == river):
-            dictionary = dict[1]
-            list_for_dict.append(dictionary)
+    for dict in dict_river_station.keys():
+        if (dict == river):
+            dictionary = dict_river_station[dict]
 
-    return list_for_dict
+    return dictionary
 
+print(dictionary_search(dict_river_station, "River Cam"))
 
 
 
