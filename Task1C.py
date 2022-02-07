@@ -12,5 +12,5 @@ def run_task_c():
     
     return list_1C
 
-#list_of_stations_within_radius = run_task_c()
-#print (list_of_stations_within_radius)    
+list_of_stations_within_radius = run_task_c()
+print (list_of_stations_within_radius)    

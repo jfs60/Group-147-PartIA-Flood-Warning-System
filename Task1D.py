@@ -9,11 +9,11 @@ def run_task_1D():
     return list_of_rivers
 
 list_1D = run_task_1D()
-#print (list_1D)
-print (len(list_1D))
+
 myList = sorted(list(list_1D))
 
 print (myList[:10])
+print (len(myList))
 
 def run(): 
     stations = build_station_list()
@@ -23,7 +23,7 @@ def run():
     return station_river_dict
 
 dict_river_station = run()
-#print (dict_river_station)
+
 
 def dictionary_search (dict_river_station, river): 
     list_for_dict = []
@@ -33,7 +33,7 @@ def dictionary_search (dict_river_station, river):
 
     return dictionary
 
-print(dictionary_search(dict_river_station, "River Cam"))
+#print(dictionary_search(dict_river_station, "River Aire"))
 
 
 
