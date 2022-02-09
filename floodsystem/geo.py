@@ -102,20 +102,17 @@ def station_by_river(stations):
 
 #Task 1E
 def rivers_by_station_number(stations, N):
-    river_number_of_station=[]
-    river_dictionary = station_by_river(stations)
-    for key in river_dictionary.keys():
-        number_of_stations = len(river_dictionary[key])
-        river_number = key, number_of_stations
-        river_number_of_station.append(river_number)
-    sorted_river_number = sorted_by_key(river_number_of_station, 1, reverse=True)
-
-    n = 0
-    if sorted_river_number[N][1] == sorted_river_number[N+1][1]:
-        n = 0
-        while sorted_river_number[N][1] == sorted_river_number[N+n+1][1]:
-            n+=1
-        return sorted_river_number[:N+n]
-    elif sorted_river_number[N][1] != sorted_river_number[N+1][1]: 
-        return sorted_river_number[:N]
-    
+    rivers = station_by_river(stations)
+    top_rivers = []
+    stations_per_river = []
+    for river in rivers:
+        stations_per_river.append(len(rivers[river]))
+    sorted_stations_per_river = sorted(stations_per_river)
+    sorted_stations_per_river.reverse()
+    min_stations = sorted_stations_per_river[N-1]
+    for river in rivers:
+        if len(rivers[river])>= min_stations:
+            top_rivers.append((river,len(rivers[river])))
+    final_rivers = sorted_by_key(top_rivers,1)
+    final_rivers.reverse()
+    return(final_rivers)
