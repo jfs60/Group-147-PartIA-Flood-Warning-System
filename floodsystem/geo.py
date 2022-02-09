@@ -86,7 +86,7 @@ def rivers_with_stations (stations):
 - takes in the list of stations 
 - outputs the dictionary linking rivers and stations"""
  
-def station_by_river (stations): 
+def station_by_river(stations): 
     station_by_river_dict = {}
     
     for station in stations: 
@@ -103,7 +103,7 @@ def station_by_river (stations):
 #Task 1E
 def rivers_by_station_number(stations, N):
     river_number_of_station=[]
-    river_dictionary=stations_by_river(stations)
+    river_dictionary = station_by_river(stations)
     for key in river_dictionary.keys():
         number_of_stations = len(river_dictionary[key])
         river_number = key, number_of_stations
@@ -118,10 +118,4 @@ def rivers_by_station_number(stations, N):
         return sorted_river_number[:N+n]
     elif sorted_river_number[N][1] != sorted_river_number[N+1][1]: 
         return sorted_river_number[:N]
-            
-
-
-
-
     
-

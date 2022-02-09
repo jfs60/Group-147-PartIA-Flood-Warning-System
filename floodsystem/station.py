@@ -53,7 +53,7 @@ class MonitoringStation:
             if self.typical_range[0] is None or self.typical_range[1] is None:
                 return False
 
-            if math.isnan(self.typical_range[0]) or math.isnan(self.typical_range[1]):
+            if self.typical_range[0] - self.typical_range[1] > 0:
                 return False
 
             low, high = self.typical_range
