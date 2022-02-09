@@ -101,18 +101,21 @@ def station_by_river(stations):
     return station_by_river_dict
 
 #Task 1E
+
 def rivers_by_station_number(stations, N):
+    """This function takes N as the arguement. This function will return a tuple of rivers 
+    and the amount of monitering stations along it. It will show the top rivers that have teh most stations along it."""
     rivers = station_by_river(stations)
     top_rivers = []
-    stations_per_river = []
-    for river in rivers:
-        stations_per_river.append(len(rivers[river]))
-    sorted_stations_per_river = sorted(stations_per_river)
-    sorted_stations_per_river.reverse()
-    min_stations = sorted_stations_per_river[N-1]
-    for river in rivers:
-        if len(rivers[river])>= min_stations:
-            top_rivers.append((river,len(rivers[river])))
-    final_rivers = sorted_by_key(top_rivers,1)
-    final_rivers.reverse()
-    return(final_rivers)
+    stations_by_river = []
+    for r in rivers:
+        stations_by_river.append(len(rivers[r]))
+    s = sorted(stations_by_river)
+    s.reverse()
+    min_stations = s[N-1]
+    for r in rivers:
+        if len(rivers[r])>= min_stations:
+            top_rivers.append((r,len(rivers[r])))
+    final_rivers_list = sorted_by_key(top_rivers,1)
+    final_rivers_list.reverse()
+    return(final_rivers_list)
