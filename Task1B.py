@@ -12,8 +12,8 @@ def camb_run ():
     
     return distance
 
-#station_and_distance = camb_run()
-#closest = (camb_run())[:10]
-
-#furthest = (camb_run())[-10:]
-#print (furthest)
+station_and_distance = camb_run()
+closest = (camb_run())[:10]
+print(closest)
+furthest = (camb_run())[-10:]
+print (furthest)

@@ -6,7 +6,7 @@ def run():
 
     # Build list of stations
     stations = build_station_list()
-    list_of_rivers_numbers=rivers_by_station_number(stations, 9)
+    list_of_rivers_numbers=rivers_by_station_number(stations, 10)
     print("Rivers with greatest number of stations: {}".format(list_of_rivers_numbers))
 
 

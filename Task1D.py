@@ -33,8 +33,8 @@ def dictionary_search (dict_river_station, river):
 
     return dictionary
 
-#print(dictionary_search(dict_river_station, "River Aire"))
-
-
+print(dictionary_search(dict_river_station, "River Cam"))
+print(dictionary_search(dict_river_station, "River Aire"))
+print(dictionary_search(dict_river_station, "River Thames"))
 
 
