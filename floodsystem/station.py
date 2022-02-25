@@ -5,7 +5,7 @@
 for manipulating/modifying station data
 
 """
-
+import math
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -40,28 +40,56 @@ class MonitoringStation:
         return d
     #task 1f
     def typical_range_consistent(self):
-            """returns true if and only if the data in the station class meets certain consistency
-            requirements including that typical highs are higher than lows and that data is available
-            also checks if latest level is consistent to save a lot of other code
-            """
-            if self.typical_range is None:
-                return False
+        """returns true if and only if the data in the station class meets certain consistency
+        requirements including that typical highs are higher than lows and that data is available
+        also checks if latest level is consistent to save a lot of other code
+        """
+        if self.typical_range is None:
+            return False
 
-            # the following if statement is probably not necessary as math.isnan
-            # covers it, but it does no harm.
+        
+        if self.typical_range[0] is None or self.typical_range[1] is None:
+            return False
 
-            if self.typical_range[0] is None or self.typical_range[1] is None:
-                return False
+        if self.typical_range[0] - self.typical_range[1] > 0:
+            return False
+        
+        return True
+    def relative_water_level (self): 
+        """ used in task 2b to find the relative level of water to the max and min water level"""
+        if self.typical_range_consistent(): 
+            try:
+                relative_level = (self.latest_level - self.typical_range[0]) / (
+                        self.typical_range[1] - self.typical_range[0])
+                return relative_level
 
-            if self.typical_range[0] - self.typical_range[1] > 0:
-                return False
-
-            low, high = self.typical_range
+            except:
+                return None
             # using this phrasing to make it more clear how consistency is being
-            # checked
-            return not (high < low)
+            # checked        
+        
 
 
 def inconsistent_typical_range_stations(stations):
     """Returns a list of all stations with inconsistent typical ranges"""
     return [s for s in stations if not s.typical_range_consistent()]
+
+
+
+def relative_water_level (self): 
+    """ used in task 2b to find the relative level of water to the max and min water level"""
+    if self.typical_range_consistent(): 
+   
+        try:
+            relative_level = (self.latest_level - self.typical_range[0]) / (
+                    self.typical_range[1] - self.typical_range[0])
+        except:
+            relative_level = None
+       
+        
+    else: 
+        relative_level = None
+    return relative_level 
+
+
+
