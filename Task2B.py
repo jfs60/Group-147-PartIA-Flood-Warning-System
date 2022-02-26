@@ -1,4 +1,4 @@
-from floodsystem.station import MonitoringStation, relative_water_level
+from floodsystem.station import MonitoringStation
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.flood import stations_level_over_threshold
 

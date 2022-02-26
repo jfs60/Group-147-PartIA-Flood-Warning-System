@@ -65,8 +65,7 @@ class MonitoringStation:
 
             except:
                 return None
-            # using this phrasing to make it more clear how consistency is being
-            # checked        
+                  
         
 
 
@@ -76,20 +75,7 @@ def inconsistent_typical_range_stations(stations):
 
 
 
-def relative_water_level (self): 
-    """ used in task 2b to find the relative level of water to the max and min water level"""
-    if self.typical_range_consistent(): 
-   
-        try:
-            relative_level = (self.latest_level - self.typical_range[0]) / (
-                    self.typical_range[1] - self.typical_range[0])
-        except:
-            relative_level = None
-       
-        
-    else: 
-        relative_level = None
-    return relative_level 
+ 
 
 
 
