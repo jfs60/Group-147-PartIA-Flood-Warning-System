@@ -12,16 +12,18 @@ def plot_water_levels(station, dates, levels):
     plt.plot(dates, levels, label = "water level data")
 
     """typical low and high values """
-    x = np.linspace(0,10,10)
-    y_low = [station.typical_range[0]]
+    print(station.typical_range)
+    print(station)
+    y_low = [station.typical_range[0]]*len(levels)
 
-    y_high = [station.typical_range[1]]
-    plt.plot(x, y_low, label= " typical low")
-    plt.plot(x, y_high, label= " typical high")
+    y_high = [station.typical_range[1]]*len(levels)
+    plt.plot(dates, y_low, label= " typical low")
+    plt.plot(dates, y_high, label= " typical high")
 
     plt.xlabel('date')
     plt.ylabel('water level / m')
     plt.title('Station: '+ station.name)
+    plt.show()
 
 
 

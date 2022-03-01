@@ -29,7 +29,7 @@ def stations_highest_rel_level(stations, N):
         
         
         if relative_level != None: 
-            station_list.append ((station.name, relative_level))
+            station_list.append ((station, relative_level))
         
     station_list.sort(key=lambda x: x[1], reverse=True)
     station_list = station_list[:N]
