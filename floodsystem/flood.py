@@ -1,39 +1,26 @@
-from this import d
-from .utils import sorted_by_key  
-from floodsystem.stationdata import build_station_list
+from .utils import sorted_by_key
 
-def stations_level_over_threshold (stations, tol): 
-    stations_flooded = []
-
-    for station in stations: 
-        relative_level = station.relative_water_level()
-        print(relative_level)
-        try:
-            if relative_level > tol:
-                stations_flooded.append((station.name, relative_level))
-        except:
+#Task2B
+def stations_level_over_threshold(stations, tol):
+    """Function which takes the list of all stations and a tolerance level. Returns a tuple of station name and relative water level for stations
+    who's relative water level is over the tol """
+    stations_over_tol = []
+    for station in stations:
+        if station.relative_water_level() == None:
             pass
+        elif station.relative_water_level() > tol:
+            stations_over_tol.append((station, station.relative_water_level()))
 
-        
+    sorted_stations_over_tol = sorted_by_key(stations_over_tol,1,True)
+    return sorted_stations_over_tol
 
-    stations_flooded.sort(key=lambda x: x[1], reverse=True)
 
+#Task2C
+def stations_highest_rel_level(stations, N):
+    """Takes a list of all monitoring stations and a number N as an input. Returns the top N stations with the highest relative water level as a tuple of station name and relative water level. """
+    level_relative_to_range = stations_level_over_threshold(stations,0)
+    return level_relative_to_range[:N]
 
-    return stations_flooded
-
-def stations_highest_rel_level(stations, N): 
-    station_list = []
-    
-    for station in stations: 
-        relative_level = station.relative_water_level()
-        
-        
-        if relative_level != None: 
-            station_list.append ((station, relative_level))
-        
-    station_list.sort(key=lambda x: x[1], reverse=True)
-    station_list = station_list[:N]
-    return station_list
 
 
 
