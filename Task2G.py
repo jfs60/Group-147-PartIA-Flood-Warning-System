@@ -3,13 +3,13 @@ import numpy as np
 import matplotlib.dates as plt
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.analysis import polyfit
-from floodsystem.flood import stations_level_over_threshold
+from floodsystem.flood import stations_level_over_threshold, stations_level_over_threshold_class
 from floodsystem.stationdata import build_station_list, update_water_levels
 
 def flood_warning_system():
     stations = build_station_list()
     update_water_levels(stations)
-    stations_at_risk = stations_level_over_threshold(stations, 0.75)
+    stations_at_risk = stations_level_over_threshold_class(stations, 0.75)
 
     severe = set()
     high = set()

@@ -1,6 +1,6 @@
 from floodsystem.station import MonitoringStation
 from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.flood import stations_highest_rel_level, stations_level_over_threshold
+from floodsystem.flood import stations_highest_rel_level, stations_level_over_threshold, stations_highest_rel_level_class
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.plot import plot_water_levels
 import datetime
@@ -14,7 +14,7 @@ def run ():
     Number_of_stations = 5
     dt = 10
 
-    stations_flooded = stations_highest_rel_level(stations, Number_of_stations)  
+    stations_flooded = stations_highest_rel_level_class(stations, Number_of_stations)  
     
     for station in stations_flooded:
         dates, level = fetch_measure_levels(station[0].measure_id,dt=datetime.timedelta(days=dt))

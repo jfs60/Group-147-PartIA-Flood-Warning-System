@@ -1,15 +1,8 @@
-from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
-from floodsystem.stationdata import build_station_list
-from floodsystem.stationdata import update_water_levels
-from floodsystem.station import MonitoringStation
-from floodsystem.plot import plot_water_levels
-
-
-stations = build_station_list()
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level , stations_level_over_threshold_class
 update_water_levels(stations)
 def test_stations_level_over_threshold():
     tol = 0.8
-    a = stations_level_over_threshold(stations, tol)
+    a = stations_level_over_threshold_class(stations, tol)
     for i in stations:
         for j in a:
             if j[0] == i.name:
