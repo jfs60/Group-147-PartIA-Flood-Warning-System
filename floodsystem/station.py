@@ -55,6 +55,8 @@ class MonitoringStation:
             return False
         
         return True
+    
+    """relative water level function inside the class that gives the fraction calculated with typical range"""
     def relative_water_level (self): 
         """ used in task 2b to find the relative level of water to the max and min water level"""
         if self.typical_range_consistent(): 

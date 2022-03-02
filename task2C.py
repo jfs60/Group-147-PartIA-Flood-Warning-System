@@ -11,3 +11,7 @@ def run ():
 
 stations_Task_2C = run()
 print (stations_Task_2C)
+
+if __name__ == "__main__":
+    print("*** Task 2C: CUED Part IA Flood Warning System ***")
+    run()
